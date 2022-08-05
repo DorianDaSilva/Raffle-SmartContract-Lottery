@@ -23,7 +23,7 @@ developmentChains.includes(network.name)
 
                   await new Promise(async function () {
                       //set up listener before we enter the raffle
-                      Raffle.once("WinnerPicked", async function(resolve, reject) {
+                      Raffle.once("WinnerPicked", async function() {
                           console.log("WinnerPicked event fired")
                           try {
                               //asserts
@@ -41,11 +41,10 @@ developmentChains.includes(network.name)
                                   winnerStartingBalance.add(raffleEntranceFee).toString()
                               )
                               assert(endingTimeStamp > startingTimeStamp)
-                              resolve()
-                          } catch (e) {
-                              console.log(e)
-                              reject(e)
-                          }
+                          } catch (error) {
+                              console.log(error)
+                              reject(error)
+                          } resolve(Promise)
                       })
                       //entering the raffle
                       console.log("Entering Raffle...")

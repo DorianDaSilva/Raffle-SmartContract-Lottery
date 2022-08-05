@@ -89,6 +89,7 @@ uint256 private immutable i_interval;
         bytes memory /*checkdata*/
     )
         public
+        view
         override
         returns (
             bool upkeepNeeded,
